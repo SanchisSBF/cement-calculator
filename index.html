@@ -2,9 +2,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dry cement calculator for preparing a cubic meter of concrete</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- Header block -->
+<header class="container-fluid">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <a href="/" class="logo"></a>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <h1>Dry cement calculator for preparing a cubic meter of concrete</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="donate"></div>
+            </div>
+        </div>
+    </div>
+</header>
 
+<!-- Form block -->
+<form action="" id="calculator">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="grade_cement">Cement grade</label>
+                    <select name="grade_cement" id="grade_cement" class="form-control">
+                        <option name="1">M400</option>
+                        <option name="2">M500</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="what_is_poured">What is poured</label>
+                    <select name="what_is_poured" id="what_is_poured" class="form-control">
+                        <option name="1">Base (underlay) for screed, foundation, tile or concrete track.</option>
+                        <option name="2">Foundations of one-story buildings, screed, blind area, platforms, stairs.</option>
+                        <option name="4">Strip foundations, monolithic walls, screed, blind area, platforms, stairs.</option>
+                        <option name="5">Reinforced concrete casting (beams, supporting columns, crossbars, lintels, floor slabs, pools).</option>
+                        <option name="6">Waterworks (dams, bridges), fortifications (bunkers, storage).</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="сoncrete_ductil">Concrete ductil</label>
+                    <select name="сoncrete_ductil" id="сoncrete_ductil" class="form-control">
+                        <option name="1">Very ductile</option>
+                        <option name="2">Medium plastic</option>
+                        <option name="3">Low plastic</option>
+                        <option name="4">Unplastic</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="aggrigate">Aggrigate</label>
+                    <select name="aggrigate" id="aggrigate" class="form-control">
+                        <option name="1">Gravel 10mm</option>
+                        <option name="2">Crushed stone 10mm</option>
+                        <option name="3">Gravel 20mm</option>
+                        <option name="4">Crushed stone 20mm</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Block submit -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <div class="btn_block" id="calculate"></div>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <p id="total">Total:</p>
+            <table class="table">
+                <thead class="badge-warning">
+                <th>Name</th>
+                <th>Value</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Cement</td>
+                    <td id="cemen">0</td>
+                </tr>
+                <tr>
+                    <td>Sand</td>
+                    <td id="sand">0</td>
+                </tr>
+                <tr>
+                    <td>Crushed stone</td>
+                    <td id="crusher">0</td>
+                </tr>
+                <tr>
+                    <td>Water</td>
+                    <td id="watere">0</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Block tables -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="titles">Concrete Strength Table</h3>
+            <table class="table">
+                <tbody>
+                <tr class="badge-primary">
+                    <td scope="col">Concrete grade</td>
+                    <td scope="col">M75</td>
+                    <td scope="col">M100</td>
+                    <td scope="col">M150</td>
+                    <td scope="col">M200</td>
+                    <td scope="col">M250</td>
+                    <td scope="col">M300</td>
+                    <td scope="col">M350</td>
+                    <td scope="col">M400</td>
+                </tr>
+                <tr>
+                    <td>Load (Normative), kg / sm&sup2;</td>
+                    <td>65</td>
+                    <td>98</td>
+                    <td>131</td>
+                    <td>196</td>
+                    <td>262</td>
+                    <td>294</td>
+                    <td>327</td>
+                    <td>393</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 class="titles">Application of concrete grade</h3>
+            <table class="table">
+                <thead class="badge-primary">
+                <tr>
+                    <th>Mark M100-M150</th>
+                    <th>Mark M200-M250</th>
+                    <th>Mark M300</th>
+                    <th>Mark M350</th>
+                    <th>Mark M400</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Base (underlay) for screed, foundation, tile or concrete track.</td>
+                    <td>Foundations of one-story buildings, screed, blind area, platforms, stairs.</td>
+                    <td>Strip foundations, monolithic walls, screed, blind area, platforms, stairs.</td>
+                    <td>Reinforced concrete casting (beams, supporting columns, crossbars, lintels, floor slabs, pools).</td>
+                    <td>Waterworks (dams, bridges), fortifications (bunkers, storage).</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Open Sans ExtraBold Italic'), local('OpenSans-ExtraBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKW-U9hrIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOUuhs.ttf) format('truetype');
+}
+body {
+  font-family: "Open Sans";
+}
+body header {
+  background: url("../img/background.png") no-repeat;
+  background-size: 100% auto;
+  padding-top: 30px;
+}
+body header .logo {
+  display: block;
+  position: relative;
+  width: 194px;
+  height: 136px;
+  background: url("../img/Logo.png") no-repeat;
+}
+body header h1 {
+  width: 560px;
+  text-align: right;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0px 13px 7px rgba(0, 0, 0, 0.35);
+  font-family: "Open Sans ExtraBold";
+  font-size: 36px;
+}
+body header #donate {
+  display: inline-block;
+  width: 320px;
+  height: 143px;
+  min-width: 240px;
+  max-width: 320px;
+  min-height: 107px;
+  max-height: 143px;
+  background: url("../img/donate-paypal-button.png") no-repeat 100% 100%;
+  margin: 50px auto;
+  -moz-transition: 300ms;
+  -webkit-transition: 300ms;
+}
+body header #donate:hover {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+body #calculator {
+  width: 100%;
+  margin-top: 50px;
+}
+body .btn_block {
+  display: block;
+  position: relative;
+  width: 204px;
+  height: 65px;
+  background: url("../img/submit_btn.png") no-repeat 100% 100%;
+  margin: 50px auto;
+  -moz-transition: 300ms;
+  -webkit-transition: 300ms;
+}
+body .btn_block:hover {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+body #total {
+  font-size: 14px;
+  font-family: "Open Sans ExtraBold";
+  color: #ad3c30;
+  text-align: right;
+  margin-top: 30px;
+}
+body .titles {
+  font-size: 30px;
+  font-family: "Open Sans ExtraBold";
+  color: #363231;
+  margin: 50px 0;
+}
+/*# sourceMappingURL=style.css.map */
