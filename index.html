@@ -5,6 +5,10 @@
     <title>Dry cement calculator for preparing a cubic meter of concrete</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
 </head>
 <body>
 <!-- Header block -->
@@ -36,8 +40,10 @@
                 <div class="form-group">
                     <label for="grade_cement">Cement grade</label>
                     <select name="grade_cement" id="grade_cement" class="form-control">
-                        <option name="1">M400</option>
-                        <option name="2">M500</option>
+                        <option name="M300">M300</option>
+                        <option name="M400">M400</option>
+                        <option name="M500">M500</option>
+                        <option name="M600">M600</option>
                     </select>
                 </div>
             </div>
@@ -45,11 +51,10 @@
                 <div class="form-group">
                     <label for="what_is_poured">What is poured</label>
                     <select name="what_is_poured" id="what_is_poured" class="form-control">
-                        <option name="1">Base (underlay) for screed, foundation, tile or concrete track.</option>
-                        <option name="2">Foundations of one-story buildings, screed, blind area, platforms, stairs.</option>
-                        <option name="4">Strip foundations, monolithic walls, screed, blind area, platforms, stairs.</option>
-                        <option name="5">Reinforced concrete casting (beams, supporting columns, crossbars, lintels, floor slabs, pools).</option>
-                        <option name="6">Waterworks (dams, bridges), fortifications (bunkers, storage).</option>
+                        <option name="150">Base (underlay) for screed, foundation, tile or concrete track.</option>
+                        <option name="250">Foundations of one-story buildings, screed, blind area, platforms, stairs.</option>
+                        <option name="300">Strip foundations, monolithic walls, screed, blind area, platforms, stairs.</option>
+                        <option name="400">Waterworks (dams, bridges), fortifications (bunkers, storage).</option>
                     </select>
                 </div>
             </div>
@@ -68,10 +73,18 @@
                 <div class="form-group">
                     <label for="aggrigate">Aggrigate</label>
                     <select name="aggrigate" id="aggrigate" class="form-control">
-                        <option name="1">Gravel 10mm</option>
-                        <option name="2">Crushed stone 10mm</option>
-                        <option name="3">Gravel 20mm</option>
-                        <option name="4">Crushed stone 20mm</option>
+                        <optgroup  label="Gravel">
+                            <option name="g10">Gravel 10mm</option>
+                            <option name="g20">Gravel 20mm</option>
+                            <option name="g40">Gravel 40mm</option>
+                            <option name="g80">Gravel 80mm</option>
+                        </optgroup>
+                        <optgroup  label="Crushed stone">
+                            <option name="c10">Crushed stone 10mm</option>
+                            <option name="c20">Crushed stone 20mm</option>
+                            <option name="c40">Crushed stone 40mm</option>
+                            <option name="c80">Crushed stone 80mm</option>
+                        </optgroup>
                     </select>
                 </div>
             </div>
@@ -86,7 +99,7 @@
             <div class="btn_block" id="calculate"></div>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <p id="total">Total:</p>
+            <p id="total">Total: 1m&sup3;</p>
             <table class="table">
                 <thead class="badge-warning">
                 <th>Name</th>
@@ -95,7 +108,7 @@
                 <tbody>
                 <tr>
                     <td>Cement</td>
-                    <td id="cemen">0</td>
+                    <td id="cement">0</td>
                 </tr>
                 <tr>
                     <td>Sand</td>
@@ -171,5 +184,16 @@
         </div>
     </div>
 </div>
+
+<script src="js/script.js" ></script>
+<script>
+    $("#calculate").click(function () {
+        var cement = $("#grade_cement option:selected");
+        var concrete = $("#what_is_poured option:selected");
+        var plastic = $("#сoncrete_ductil option:selected");
+        var aggrigate = $("#aggrigate option:selected");
+        spec.calculate(cement.attr("name"), concrete.attr("name"), plastic.attr("name"), aggrigate.attr("name"));
+    });
+</script>
 </body>
 </html>
